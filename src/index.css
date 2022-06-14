@@ -10,16 +10,28 @@
   background-color: var(--pri-color);
 }
 
-a.active {
-  @apply bg-amber-500 text-white;
+.control-arrow {
+  @apply h-16 top-1/4 w-24 !important;
+
+  background-color: var(--pri-color);
 }
 
-.control-arrow {
-  @apply h-16 top-1/4 w-24 bg-amber-500 !important;
+.control-arrow::after {
+  @apply text-white text-lg;
+
+  content: '▶';
+}
+
+.control-prev::after {
+  content: '◀';
 }
 
 .control-arrow:first-of-type {
   @apply rounded-r-full;
+}
+
+.control-disabled {
+  background-color: #efefef;
 }
 
 .control-next {
@@ -41,6 +53,7 @@ a.active {
 .carousel,
 .carousel-slider {
   display: flex !important;
+  align-items: center;
 }
 
 .slider-wrapper {
