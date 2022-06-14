@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Navbar from './navbar';
 
 const SideBar = ({ renderAside, setRenderAside }) => (
   <aside
@@ -18,22 +19,7 @@ const SideBar = ({ renderAside, setRenderAside }) => (
       <div className=" hidden lg:flex justify-center items-center">
         <img className="w-auto h-44" alt="logo" src="/logo.png" />
       </div>
-      <ul className="pl-5 pt-12 lg:pt-0">
-        {/* {links.map((link) => (
-          <NavItem
-            key={links.indexOf(link)}
-            name={link.name}
-            path={link.path}
-            style={
-              !userState.isLoggedIn &&
-              link.path !== '/' &&
-              link.path !== '/reserve'
-                ? 'hidden'
-                : ''
-            }
-          />
-        ))} */}
-      </ul>
+      <Navbar />
     </div>
     <div>
       {/* <ul className="flex justify-center mb-3">
