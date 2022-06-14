@@ -1,20 +1,36 @@
-import './App.css';
+import { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import SideBar from './components/Sidebar/sidebar';
+import Home from './pages/home';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const currentRoute = location.pathname;
+  const [renderAside, setRenderAside] = useState(false);
+  const { innerWidth } = window;
+
+  useEffect(() => {
+    if (
+      innerWidth >= 1024
+      && currentRoute !== '/sign-up'
+      && currentRoute !== '/login'
+    ) {
+      setRenderAside(true);
+    } else {
+      setRenderAside(false);
+    }
+  }, [currentRoute]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="relative">
+      <main className="flex h-screen">
+        <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
