@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --pri-color: #97bf10;
+}
+
+.bg-pri {
+  background-color: var(--pri-color);
+}

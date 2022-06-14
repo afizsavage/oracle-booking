@@ -11,7 +11,7 @@ const NavItem = ({ name, path, style }) => {
         to={path}
         className={
           currentRoute === path
-            ? `${style} pl-3 py-2 block bg-emerald-500  text-white w-full font-semibold`
+            ? `${style} pl-3 py-2 block bg-pri  text-white w-full font-semibold`
             : `${style} pl-3 py-2 block w-full font-semibold hover:bg-white`
         }
       >

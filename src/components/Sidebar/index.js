@@ -7,13 +7,13 @@ const SideBar = ({ renderAside, setRenderAside }) => (
   <aside
     className={
       renderAside
-        ? 'top-0 absolute bg-slate-100 lg:relative flex flex-col z-50 justify-between h-screen w-full lg:w-72 border-r-2 pt-0 pb-6'
+        ? 'top-0 absolute bg-white lg:relative flex flex-col z-50 justify-between h-screen w-full lg:w-64 border-r-2 pt-0 pb-6'
         : 'hidden'
     }
   >
     <div className="lg:hidden absolute right-2 top-2 border">
       <button className="p-1" type="button" onClick={() => setRenderAside()}>
-        {/* <MdOutlineClose className="text-xl text-gray-700" /> */}
+        x
       </button>
     </div>
     <div>

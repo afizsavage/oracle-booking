@@ -16,7 +16,7 @@ const socialIcons = [
   <TiSocialPinterest key={4} />,
 ];
 
-const SocialLink = ({ icon }) => <li className="mx-1">{icon}</li>;
+const SocialLink = ({ icon }) => <li className="mx-1 text-base"><a href="/">{icon}</a></li>;
 
 const Footer = () => (
   <div>
@@ -30,7 +30,7 @@ const Footer = () => (
       {' '}
       {new Date().getFullYear()}
       {' '}
-      Booking App
+      Oracle Booking
     </span>
   </div>
 );

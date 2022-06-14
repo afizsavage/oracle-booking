@@ -1,4 +1,4 @@
-import NavItem from './navItem';
+import NavItem from './nav-link';
 
 const links = [
   { name: 'Cars', path: '/' },
