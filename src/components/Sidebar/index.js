@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+
+import Footer from './footer';
 import Navbar from './navbar';
 
 const SideBar = ({ renderAside, setRenderAside }) => (
@@ -21,16 +23,7 @@ const SideBar = ({ renderAside, setRenderAside }) => (
       </div>
       <Navbar />
     </div>
-    <div>
-      {/* <ul className="flex justify-center mb-3">
-        {socialIcons.map((icon) => (
-          <SocialLink icon={icon} key={icon.key} />
-        ))}
-      </ul>
-      <span className="text-xs font-medium w-full text-center block">
-        © {new Date().getFullYear()} Booking App
-      </span> */}
-    </div>
+    <Footer />
   </aside>
 );
 
