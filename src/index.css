@@ -9,3 +9,85 @@
 .bg-pri {
   background-color: var(--pri-color);
 }
+
+a.active {
+  @apply bg-amber-500 text-white;
+}
+
+.control-arrow {
+  @apply h-16 top-1/4 w-24 bg-amber-500 !important;
+}
+
+.control-arrow:first-of-type {
+  @apply rounded-r-full;
+}
+
+.control-next {
+  @apply rounded-l-full;
+}
+
+.mobile {
+  width: 100%;
+}
+
+.carousel .control-next.control-arrow::before {
+  @apply border-l-black !important;
+}
+
+.carousel .control-prev.control-arrow::before {
+  @apply border-r-black !important;
+}
+
+.carousel,
+.carousel-slider {
+  display: flex !important;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  width: calc(100% - 12rem) !important;
+}
+
+.slider {
+  display: flex !important;
+}
+
+.slide {
+  min-width: 17rem !important;
+  margin: 0 1.5rem !important;
+}
+
+.slide:first-of-type {
+  margin-left: 0 !important;
+}
+
+.slide img {
+  width: 17rem !important;
+  height: 17rem !important;
+}
+
+.image-wrapper {
+  width: 20rem;
+  height: 20rem;
+}
+
+.i-wrap {
+  height: 20rem;
+}
+
+.round {
+  height: 16rem;
+  width: 16rem;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .image-wrapper {
+    width: 17rem;
+    height: 17rem;
+  }
+
+  .i-wrap {
+    height: 17rem;
+  }
+}
