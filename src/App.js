@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import SideBar from './components/sidebar/sidebar';
+import SideBar from './components/sidebar/sidebar.js';
 import Home from './pages/home';
 
 const App = () => {
