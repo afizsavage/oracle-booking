@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import store from './redux/configStore';
+import { extendedApiSlice } from './features/cars/carsSlice';
+
+store.dispatch(extendedApiSlice.endpoints.getCars.initiate());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
