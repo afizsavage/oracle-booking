@@ -4,6 +4,7 @@
 
 :root {
   --pri-color: #97bf10;
+  --sec-color: #efefef;
 }
 
 .bg-pri {
@@ -31,7 +32,7 @@
 }
 
 .control-disabled {
-  background-color: #efefef;
+  background-color: var(--sec-color);
 }
 
 .control-next {
@@ -63,20 +64,21 @@
 
 .slider {
   display: flex !important;
+  justify-content: start;
 }
 
 .slide {
-  min-width: 17rem !important;
+  min-width: 27% !important;
   margin: 0 1.5rem !important;
 }
 
 .slide:first-of-type {
-  margin-left: 0 !important;
+  margin-left: 2rem !important;
 }
 
 .slide img {
-  width: 17rem !important;
-  height: 17rem !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 .image-wrapper {
@@ -84,13 +86,45 @@
   height: 20rem;
 }
 
-.i-wrap {
-  height: 20rem;
+.round {
+  height: 13rem;
+  width: 13rem;
 }
 
-.round {
-  height: 16rem;
-  width: 16rem;
+.blue {
+  @apply bg-blue-100;
+}
+
+.green {
+  @apply bg-green-100;
+}
+
+.red {
+  @apply bg-red-100;
+}
+
+.yellow {
+  @apply bg-yellow-100;
+}
+
+.orange {
+  @apply bg-orange-100;
+}
+
+.pink {
+  @apply bg-orange-100;
+}
+
+.black {
+  background-color: #bcbdbf;
+}
+
+.white {
+  background-color: var(--sec-color);
+}
+
+.purple {
+  @apply bg-purple-100;
 }
 
 @media only screen and (min-width: 768px) {
@@ -101,6 +135,6 @@
   }
 
   .i-wrap {
-    height: 17rem;
+    height: 15rem;
   }
 }

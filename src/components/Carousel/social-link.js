@@ -13,7 +13,7 @@ const socialIcons = [
 ];
 
 const SocialLink = ({ icon }) => (
-  <li className="mx-2 mt-3 text-2xl text-gray-400">{icon}</li>
+  <li className="mx-2 mt-3 text-3xl text-gray-400">{icon}</li>
 );
 
 const SocialShare = () => (
