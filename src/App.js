@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import SideBar from './components/Sidebar/sidebar';
 import Home from './pages/home';
+import Reserve from './pages/reserve';
 
 const App = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const App = () => {
         <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/reserve" element={<Reserve />} />
         </Routes>
       </main>
     </div>
