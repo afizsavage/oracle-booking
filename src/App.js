@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import SideBar from './components/Sidebar/sidebar';
 import Home from './pages/home';
 import Reserve from './pages/reserve';
+import MyReservations from './pages/MyReservations';
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reserve" element={<Reserve />} />
+          <Route path="/reservations" element={<MyReservations />} />
         </Routes>
       </main>
     </div>
