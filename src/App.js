@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import SideBar from './components/Sidebar';
 import Home from './pages/home';
-import Reserve from './pages/reserve';
-import MyReservations from './pages/MyReservations';
+import MyFavourites from './pages/MyFavourites';
 
 const App = () => {
   const location = useLocation();
@@ -29,8 +28,7 @@ const App = () => {
         <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/reserve" element={<Reserve />} />
-          <Route path="/reservations" element={<MyReservations />} />
+          <Route path="/favourites" element={<MyFavourites />} />
         </Routes>
       </main>
     </div>
