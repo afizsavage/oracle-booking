@@ -15,7 +15,7 @@ const initialState = carsAdapter.getInitialState();
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getCars: builder.query({
-      query: '/cars',
+      query: () => '/cars',
       transformResponse: (responseData) => {
         const [loadedCars] = responseData;
         return carsAdapter.setAll(initialState, loadedCars); // Normalise data
@@ -23,6 +23,17 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       providesTags: (result) => [
         { type: 'Cars', id: 'LIST_CARS' },
         ...result.ids.map((id) => ({ type: 'Cars', id })), // Provide an object for each car in the list
+      ],
+    }),
+    getMyFavorites: builder.query({
+      query: () => '/my_favorites',
+      transformResponse: (responseData) => {
+        const [loadedFavorites] = responseData;
+        return carsAdapter.setAll(initialState, loadedFavorites); // Normalise data
+      },
+      providesTags: (result) => [
+        { type: 'Favorites', id: 'LIST_FAVORITES' },
+        ...result.ids.map((id) => ({ type: 'Favorites', id })), // Provide an object for each car in the list
       ],
     }),
   }),
