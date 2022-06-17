@@ -36,6 +36,25 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         ...result.ids.map((id) => ({ type: 'Favorites', id })), // Provide an object for each car in the list
       ],
     }),
+    addNewCar: builder.mutation({
+      query: (initialCar) => ({
+        method: 'POST',
+        url: '/cars',
+        body: { ...initialCar },
+      }),
+      invalidatesTags: [
+        { type: 'Cars', id: 'LIST_CARS' },
+      ],
+    }),
+    deleteCar: builder.mutation({
+      query: ({ id }) => ({
+        method: 'DELETE',
+        url: `/cars/${id}`,
+      }),
+      invalidatesTags: (arg) => [
+        { type: 'Cars', id: arg.id },
+      ],
+    }),
   }),
 });
 
