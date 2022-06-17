@@ -25,17 +25,6 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         ...result.ids.map((id) => ({ type: 'Cars', id })), // Provide an object for each car in the list
       ],
     }),
-    getMyFavorites: builder.query({
-      query: () => '/my_favorites',
-      transformResponse: (responseData) => {
-        const [loadedFavorites] = responseData;
-        return carsAdapter.setAll(initialState, loadedFavorites); // Normalise data
-      },
-      providesTags: (result) => [
-        { type: 'Favorites', id: 'LIST_FAVORITES' },
-        ...result.ids.map((id) => ({ type: 'Favorites', id })), // Provide an object for each car in the list
-      ],
-    }),
     addNewCar: builder.mutation({
       query: (initialCar) => ({
         method: 'POST',
@@ -61,19 +50,16 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetCarsQuery,
   useGetMyFavoritesQuery,
+  useAddNewCarMutation,
+  useDeleteCarMutation,
 } = extendedApiSlice;
 
 // returns the query result object
 export const selectCarsResults = extendedApiSlice.endpoints.getCars.select();
-export const selectMyFavoritesResults = extendedApiSlice.endpoints.getMyFavorites.select();
 
 // create memoized selectors
 const selectCarsData = createSelector(
   selectCarsResults,
-  (result) => result.data, // Normalized state object with ids as keys & entities as values
-);
-const selectMyFavoritesData = createSelector(
-  selectMyFavoritesResults,
   (result) => result.data, // Normalized state object with ids as keys & entities as values
 );
 
@@ -84,10 +70,3 @@ export const {
   selectById: selectCarById,
   selectId: selectCarId,
 } = carsAdapter.getSelectors((state) => selectCarsData(state) ?? initialState);
-
-export const {
-  selectIds: selectFavoriteIds,
-  selectAll: selectAllFavorites,
-  selectById: selectFavoriteById,
-  selectId: selectFavoriteId,
-} = carsAdapter.getSelectors((state) => selectMyFavoritesData(state) ?? initialState);
