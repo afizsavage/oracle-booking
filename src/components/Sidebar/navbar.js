@@ -2,8 +2,7 @@ import NavItem from './nav-link';
 
 const links = [
   { name: 'Cars', path: '/' },
-  { name: 'Reserve', path: '/reserve' },
-  { name: 'Reservations', path: '/reservations' },
+  { name: 'My Favourites', path: '/favourites' },
   { name: 'Add Car', path: '/add' },
   { name: 'Delete Car', path: '/delete' },
 ];

@@ -5,10 +5,15 @@
 :root {
   --pri-color: #97bf10;
   --sec-color: #efefef;
+  --ter-color: #b94010;
 }
 
 .bg-pri {
   background-color: var(--pri-color);
+}
+
+.bg-ter {
+  background-color: var(--ter-color);
 }
 
 .control-arrow {
