@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import SideBar from './components/Sidebar';
 import Home from './pages/home';
+import SignIn from './pages/login';
 import MyFavourites from './pages/MyFavourites';
+import SignUp from './pages/register';
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +31,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<MyFavourites />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </main>
     </div>
