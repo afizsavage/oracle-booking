@@ -47,10 +47,10 @@ const AddCars = () => {
             />
             {errors.model && <FormError>Must fill out this field</FormError>}
             <input
-              type="date"
+              type="text"
               className="border-2 border-gray-500 rounded-3xl w-full p-2 hover:border-orange-600 transition-colors active:border-orange-700 focus:outline-none focus:border-orange-700"
-              placeholder="Car year"
-              {...register('year', { required: true, min: 1000, max: 3000 })}
+              placeholder="Car title"
+              {...register('title', { required: true, maxLength: 50 })}
             />
             {errors.year && <FormError>{errors.year?.type}</FormError>}
             <input
