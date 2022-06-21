@@ -3,6 +3,7 @@
 import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+import { useSignUpMutation } from '../../features/api/authApi';
 import SubmitButton from './submit';
 
 const AuthForm = () => {
@@ -13,8 +14,10 @@ const AuthForm = () => {
   } = useForm();
   const location = useLocation();
   const currentRoute = location.pathname;
+  const [signUp] = useSignUpMutation();
 
   const onSubmit = (data) => {
+    signUp(data);
     console.log(data);
   };
 
@@ -24,7 +27,7 @@ const AuthForm = () => {
         <input
           type="text"
           placeholder="Enter Fullname"
-          {...register('fullname', {
+          {...register('name', {
             required: true,
             minLength: 5,
           })}
@@ -53,7 +56,7 @@ const AuthForm = () => {
         <input
           type="password"
           placeholder="Confirm Password"
-          {...register('confirm', {
+          {...register('password_confirmation', {
             required: true,
             minLength: 6,
           })}
