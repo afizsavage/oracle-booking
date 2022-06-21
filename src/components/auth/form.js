@@ -1,33 +1,64 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import { useLocation } from 'react-router-dom';
-import InputField from './input';
+import { useForm } from 'react-hook-form';
+
 import SubmitButton from './submit';
 
 const AuthForm = () => {
+  const {
+    register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm();
   const location = useLocation();
   const currentRoute = location.pathname;
 
-  const handleSubmit = () => {
-    console.log('submit');
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {currentRoute === '/sign-in' ? (
-        <>
-          {' '}
-          <InputField placeholder="Enter Email" type="text" />
-          <InputField placeholder="Enter Password" type="password" />
-        </>
-      ) : (
-        <>
-          {' '}
-          <InputField placeholder="Enter Name" type="text" />
-          <InputField placeholder="Enter Email" type="text" />
-          <InputField placeholder="Enter Password" type="password" />
-          <InputField placeholder="Confirm Password" type="password" />
-        </>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {currentRoute === '/sign-up' && (
+        <input
+          type="text"
+          placeholder="Enter Fullname"
+          {...register('fullname', {
+            required: true,
+            minLength: 5,
+          })}
+          defaultValue=""
+        />
       )}
-
+      <input
+        type="text"
+        placeholder="Enter Email"
+        {...register('email', {
+          required: true,
+          pattern:
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        })}
+        defaultValue=""
+      />
+      <input
+        type="password"
+        placeholder="Enter Password"
+        {...register('password', {
+          required: true,
+          minLength: 6,
+        })}
+      />
+      {currentRoute === '/sign-up' && (
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          {...register('confirm', {
+            required: true,
+            minLength: 6,
+          })}
+        />
+      )}
       <SubmitButton />
     </form>
   );
