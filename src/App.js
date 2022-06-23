@@ -4,7 +4,7 @@ import SideBar from './components/Sidebar';
 import Home from './pages/home';
 import MyFavourites from './pages/MyFavourites';
 import AddCars from './pages/addCars';
-import DeleteCars from './pages/deleteCars';
+import CarsList from './pages/deleteCars';
 
 const App = () => {
   const location = useLocation();
@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<MyFavourites />} />
           <Route path="/add" element={<AddCars />} />
-          <Route path="/delete" element={<DeleteCars />} />
+          <Route path="/delete" element={<CarsList />} />
         </Routes>
       </main>
     </div>
