@@ -1,68 +1,112 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
-import { useSignUpMutation } from '../../features/api/authApi';
+import {
+  useSignUpMutation,
+  useLoginMutation,
+} from '../../features/api/authApi';
 import SubmitButton from './submit';
+import InputField from './input';
 
 const AuthForm = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm();
+  const [showErrors, setShowErrors] = useState(false);
   const location = useLocation();
   const currentRoute = location.pathname;
   const [signUp] = useSignUpMutation();
+  const [login] = useLoginMutation();
+
+  const logInUser = async (data) => {
+    try {
+      const user = await login(data);
+      console.log(user);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const onSubmit = (data) => {
-    signUp(data);
-    console.log(data);
+    if (currentRoute === '/sign-up') {
+      setShowErrors(true);
+      signUp(data);
+    } else {
+      setShowErrors(true);
+      logInUser(data);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col items-center justify-center"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       {currentRoute === '/sign-up' && (
-        <input
+        <InputField
           type="text"
           placeholder="Enter Fullname"
-          {...register('name', {
-            required: true,
-            minLength: 5,
-          })}
-          defaultValue=""
+          register={register}
+          config={{
+            field: 'name',
+            options: {
+              required: true,
+              minLength: 5,
+            },
+          }}
+          errs={errors}
+          showErrors={showErrors}
         />
       )}
-      <input
+      <InputField
         type="text"
         placeholder="Enter Email"
-        {...register('email', {
-          required: true,
-          pattern:
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        })}
-        defaultValue=""
+        register={register}
+        config={{
+          field: 'email',
+          options: {
+            required: true,
+            pattern:
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          },
+        }}
+        errs={errors}
+        showErrors={showErrors}
       />
-      <input
+      <InputField
         type="password"
         placeholder="Enter Password"
-        {...register('password', {
-          required: true,
-          minLength: 6,
-        })}
-      />
-      {currentRoute === '/sign-up' && (
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          {...register('password_confirmation', {
+        register={register}
+        config={{
+          field: 'password',
+          options: {
             required: true,
             minLength: 6,
-          })}
+          },
+        }}
+        errs={errors}
+        showErrors={showErrors}
+      />
+      {currentRoute === '/sign-up' && (
+        <InputField
+          type="password"
+          placeholder="Confirm Password"
+          register={register}
+          config={{
+            field: 'password_confirmation',
+            options: {
+              required: true,
+              minLength: 6,
+            },
+          }}
+          errs={errors}
+          showErrors={showErrors}
         />
       )}
-      <SubmitButton />
+      <SubmitButton setShowErrors={setShowErrors} />
     </form>
   );
 };

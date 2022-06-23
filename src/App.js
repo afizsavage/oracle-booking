@@ -16,7 +16,7 @@ const App = () => {
     if (
       innerWidth >= 1024
       && currentRoute !== '/sign-up'
-      && currentRoute !== '/login'
+      && currentRoute !== '/sign-in'
     ) {
       setRenderAside(true);
     } else {
