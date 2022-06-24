@@ -10,6 +10,7 @@ const carsAdapter = createEntityAdapter({
 });
 
 const initialState = carsAdapter.getInitialState();
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ETUYUOkmfnWsWIvA8iBOkE2s1ZQ0V_zgnG_c4QRrhbg';
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -27,6 +28,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     addNewCar: builder.mutation({
       query: (initialCar) => ({
         method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
         url: '/cars/new',
         body: { ...initialCar },
       }),
@@ -36,6 +38,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
     deleteCar: builder.mutation({
       query: ({ id }) => ({
+        headers: { Authorization: `Bearer ${token}` },
         method: 'DELETE',
         url: `/cars/${id}`,
       }),
