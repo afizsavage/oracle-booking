@@ -19,11 +19,18 @@ const CarsList = () => {
         <div className="h-full text-center flex flex-col items-center pt-20 w-full">
           <h2 className="font-bold text-3xl text-center mb-10">LIST OF CARS</h2>
           {isError && (
-          <p>
-            Error:
-            {' '}
-            {error.message}
-          </p>
+            <p>
+              Error:
+              {' '}
+              {error.data.message}
+              <br />
+              {error.data.errors.map((error) => (
+                <span key={error.index}>
+                  {error}
+                  <br />
+                </span>
+              ))}
+            </p>
           )}
           <table className="table-auto w-4/5 mx-auto text-sm md:text-lg">
             <thead className="">

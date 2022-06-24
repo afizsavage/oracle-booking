@@ -44,7 +44,14 @@ const AddCars = () => {
             <p>
               Error:
               {' '}
-              {error.message}
+              {error.data.message}
+              <br />
+              {error.data.errors.map((error) => (
+                <span key={error.index}>
+                  {error}
+                  <br />
+                </span>
+              ))}
             </p>
           )}
           <p
