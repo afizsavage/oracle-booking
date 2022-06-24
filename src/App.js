@@ -3,6 +3,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import SideBar from './components/Sidebar';
 import Home from './pages/home';
 import MyFavourites from './pages/MyFavourites';
+import AddCars from './pages/addCars';
+import CarsList from './pages/deleteCars';
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +31,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<MyFavourites />} />
+          <Route path="/add" element={<AddCars />} />
+          <Route path="/delete" element={<CarsList />} />
         </Routes>
       </main>
     </div>
