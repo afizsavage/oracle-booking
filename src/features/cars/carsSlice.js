@@ -28,7 +28,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     addNewCar: builder.mutation({
       query: (initialCar) => ({
         method: 'POST',
-        url: '/cars',
+        url: '/cars/new',
         body: { ...initialCar },
       }),
       invalidatesTags: [
