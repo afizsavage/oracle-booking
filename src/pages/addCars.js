@@ -16,7 +16,6 @@ const AddCars = () => {
   const [formSuccess, setFormSuccess] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log(data);
     const {
       title, description, price, image, model,
     } = data;
@@ -26,18 +25,12 @@ const AddCars = () => {
     newCar.append('price', price);
     newCar.append('image', image);
     newCar.append('model', model);
-    console.log(newCar);
     try {
       await addNewCar({ ...newCar }).unwrap();
-      console.log('success');
       setFormSuccess(true);
     } catch (error) {
       console.log('Failed to add car', error);
     }
-    // useAddNewCarMutation(newCar);
-    // reset();
-    // setFormSuccess(true);
-    // setTimeout(() => setFormSuccess(false), 3000);
   };
 
   return (

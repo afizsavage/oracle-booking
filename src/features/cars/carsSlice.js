@@ -7,7 +7,6 @@ import apiSlice from '../api/apiSlice';
 
 const carsAdapter = createEntityAdapter({
   selectId: (car) => car.id,
-  sortComparer: (a, b) => b.date.localCompare(a.date),
 });
 
 const initialState = carsAdapter.getInitialState();
@@ -17,7 +16,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     getCars: builder.query({
       query: () => '/cars',
       transformResponse: (responseData) => {
-        const [loadedCars] = responseData;
+        const loadedCars = responseData;
         return carsAdapter.setAll(initialState, loadedCars); // Normalise data
       },
       providesTags: (result) => [
