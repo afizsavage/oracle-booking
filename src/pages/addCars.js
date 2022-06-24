@@ -40,6 +40,13 @@ const AddCars = () => {
           <h1 className="font-bold text-gray-700 text-2xl md:text-5xl text-center uppercase mb-10">
             Add Cars
           </h1>
+          {isError && (
+            <p>
+              Error:
+              {' '}
+              {error.message}
+            </p>
+          )}
           <p
             className={`text-green-600 text-center my-2 opacity-0 transition-opacity ${
               formSuccess && 'opacity-100'
@@ -89,7 +96,9 @@ const AddCars = () => {
               rows="8"
             />
             {errors.description && <FormError>Must fill out this field</FormError>}
-            <PrimaryButton btnType="submit">add bike</PrimaryButton>
+            <PrimaryButton btnType="submit">
+              {isLoading ? 'Loading...' : 'Add Car'}
+            </PrimaryButton>
           </form>
         </div>
       </div>
