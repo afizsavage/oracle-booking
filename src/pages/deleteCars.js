@@ -44,9 +44,9 @@ const CarsList = () => {
             <tbody>
               {allCars.map((car) => (
                 <tr key={car.id}>
-                  <td className="p-2">{car.title}</td>
-                  <td className="p-2">{car.model}</td>
-                  <td className="p-2">
+                  <td className="px-2 p-2">{car.title}</td>
+                  <td className="px-2 p-2">{car.model}</td>
+                  <td className="px-2 p-2">
                     <PrimaryButton
                       onClick={() => {
                         onDelete(car.id);

@@ -7,7 +7,7 @@ import apiSlice from '../api/apiSlice';
 
 const favoritesAdapter = createEntityAdapter({
   selectId: (car) => car.id,
-  sortComparer: (a, b) => b.date.localCompare(a.date),
+  // sortComparer: (a, b) => b.date.localCompare(a.date),
 });
 
 const initialState = favoritesAdapter.getInitialState();
@@ -22,7 +22,7 @@ export const extendedFavApiSlice = apiSlice.injectEndpoints({
         url: '/my_favorites',
       }),
       transformResponse: (responseData) => {
-        const [loadedFavorites] = responseData;
+        const loadedFavorites = responseData;
         return favoritesAdapter.setAll(initialState, loadedFavorites); // Normalise data
       },
       providesTags: (result) => [
@@ -44,6 +44,7 @@ export const extendedFavApiSlice = apiSlice.injectEndpoints({
     deleteFavorite: builder.mutation({
       query: ({ id }) => ({
         method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
         url: `/favorites/${id}`,
       }),
       invalidatesTags: (arg) => [
@@ -75,4 +76,4 @@ export const {
   selectAll: selectMyFavorites,
   selectById: selectMyFavoriteById,
   selectTotal: selectMyFavoritesTotal,
-} = favoritesAdapter((state) => selectMyFavoritesData(state) ?? initialState);
+} = favoritesAdapter.getSelectors((state) => selectMyFavoritesData(state) ?? initialState);
