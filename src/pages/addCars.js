@@ -3,22 +3,35 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormError from '../components/Form/FormError';
 import PrimaryButton from '../components/Form/PrimaryButton';
+import { useAddNewCarMutation } from '../features/cars/carsSlice';
 
 const AddCars = () => {
+  const [addNewCar, { isLoading, isError, error }] = useAddNewCarMutation();
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [formSuccess] = useState(false);
+  const [formSuccess, setFormSuccess] = useState(false);
 
-  // const onSubmit = (data) => {
-  //   const body = { bike: { ...data } };
-  //   dispatch(addBike(body));
-  //   reset();
-  //   setFormSuccess(true);
-  //   setTimeout(() => setFormSuccess(false), 3000);
-  // };
+  const onSubmit = async (data) => {
+    const {
+      title, description, price, image, model,
+    } = data;
+    const newCar = new FormData();
+    newCar.append('title', title);
+    newCar.append('description', description);
+    newCar.append('price', price);
+    newCar.append('image', image);
+    newCar.append('model', model);
+    try {
+      await addNewCar({ ...newCar }).unwrap();
+      setFormSuccess(true);
+    } catch (error) {
+      console.log('Failed to add car', error);
+    }
+  };
 
   return (
     <section className="fixed top-0 w-full h-full md:pl-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
@@ -27,6 +40,20 @@ const AddCars = () => {
           <h1 className="font-bold text-gray-700 text-2xl md:text-5xl text-center uppercase mb-10">
             Add Cars
           </h1>
+          {isError && (
+            <p>
+              Error:
+              {' '}
+              {error.data.message}
+              <br />
+              {error.data.errors.map((error) => (
+                <span key={error.index}>
+                  {error}
+                  <br />
+                </span>
+              ))}
+            </p>
+          )}
           <p
             className={`text-green-600 text-center my-2 opacity-0 transition-opacity ${
               formSuccess && 'opacity-100'
@@ -36,6 +63,7 @@ const AddCars = () => {
           </p>
 
           <form
+            onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10 md:mb-20"
           >
             {errors.make && <FormError>Must fill out this field</FormError>}
@@ -75,7 +103,9 @@ const AddCars = () => {
               rows="8"
             />
             {errors.description && <FormError>Must fill out this field</FormError>}
-            <PrimaryButton btnType="submit">add bike</PrimaryButton>
+            <PrimaryButton btnType="submit">
+              {isLoading ? 'Loading...' : 'Add Car'}
+            </PrimaryButton>
           </form>
         </div>
       </div>

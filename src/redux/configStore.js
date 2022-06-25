@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import logger from 'redux-logger';
 import apiSlice from '../features/api/apiSlice';
 import { authApi } from '../features/api/authApi';
 
@@ -9,7 +10,7 @@ const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
-    .concat(apiSlice.middleware, authApi.middleware),
+    .concat(apiSlice.middleware, authApi.middleware, logger),
 });
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

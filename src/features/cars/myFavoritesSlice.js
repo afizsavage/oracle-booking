@@ -7,17 +7,22 @@ import apiSlice from '../api/apiSlice';
 
 const favoritesAdapter = createEntityAdapter({
   selectId: (car) => car.id,
-  sortComparer: (a, b) => b.date.localCompare(a.date),
+  // sortComparer: (a, b) => b.date.localCompare(a.date),
 });
 
 const initialState = favoritesAdapter.getInitialState();
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ETUYUOkmfnWsWIvA8iBOkE2s1ZQ0V_zgnG_c4QRrhbg';
 
 export const extendedFavApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getMyFavorites: builder.query({
-      query: () => '/my_favorites',
+      query: () => ({
+        headers: { Authorization: `Bearer ${token}` },
+        method: 'GET',
+        url: '/my_favorites',
+      }),
       transformResponse: (responseData) => {
-        const [loadedFavorites] = responseData;
+        const loadedFavorites = responseData;
         return favoritesAdapter.setAll(initialState, loadedFavorites); // Normalise data
       },
       providesTags: (result) => [
@@ -28,7 +33,8 @@ export const extendedFavApiSlice = apiSlice.injectEndpoints({
     addNewFavorite: builder.mutation({
       query: (initialCar) => ({
         method: 'POST',
-        url: '/my_favorites',
+        headers: { Authorization: `Bearer ${token}` },
+        url: '/favorites',
         body: { ...initialCar },
       }),
       invalidatesTags: [
@@ -38,7 +44,8 @@ export const extendedFavApiSlice = apiSlice.injectEndpoints({
     deleteFavorite: builder.mutation({
       query: ({ id }) => ({
         method: 'DELETE',
-        url: `/my_favorites/${id}`,
+        headers: { Authorization: `Bearer ${token}` },
+        url: `/favorites/${id}`,
       }),
       invalidatesTags: (arg) => [
         { type: 'Favorites', id: arg.id },
@@ -69,4 +76,4 @@ export const {
   selectAll: selectMyFavorites,
   selectById: selectMyFavoriteById,
   selectTotal: selectMyFavoritesTotal,
-} = favoritesAdapter((state) => selectMyFavoritesData(state) ?? initialState);
+} = favoritesAdapter.getSelectors((state) => selectMyFavoritesData(state) ?? initialState);
