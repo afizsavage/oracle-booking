@@ -5,6 +5,8 @@ import Home from './pages/home';
 import SignIn from './pages/login';
 import MyFavourites from './pages/MyFavourites';
 import SignUp from './pages/register';
+import AddCars from './pages/addCars';
+import CarsList from './pages/deleteCars';
 
 const App = () => {
   const location = useLocation();
@@ -33,6 +35,8 @@ const App = () => {
           <Route path="/favourites" element={<MyFavourites />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/add" element={<AddCars />} />
+          <Route path="/delete" element={<CarsList />} />
         </Routes>
       </main>
     </div>
