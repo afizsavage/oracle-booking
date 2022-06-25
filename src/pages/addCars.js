@@ -22,11 +22,11 @@ const AddCars = () => {
     const newCar = new FormData();
     newCar.append('title', title);
     newCar.append('description', description);
-    newCar.append('price', price);
-    newCar.append('image', image);
+    newCar.append('price', Number(price));
+    newCar.append('image', image[0]);
     newCar.append('model', model);
     try {
-      await addNewCar({ ...newCar }).unwrap();
+      await addNewCar(newCar).unwrap();
       setFormSuccess(true);
     } catch (error) {
       console.log('Failed to add car', error);
