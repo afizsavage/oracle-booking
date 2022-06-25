@@ -7,17 +7,17 @@ import apiSlice from '../api/apiSlice';
 
 const carsAdapter = createEntityAdapter({
   selectId: (car) => car.id,
-  sortComparer: (a, b) => b.date.localCompare(a.date),
 });
 
 const initialState = carsAdapter.getInitialState();
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ETUYUOkmfnWsWIvA8iBOkE2s1ZQ0V_zgnG_c4QRrhbg';
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getCars: builder.query({
       query: () => '/cars',
       transformResponse: (responseData) => {
-        const [loadedCars] = responseData;
+        const loadedCars = responseData;
         return carsAdapter.setAll(initialState, loadedCars); // Normalise data
       },
       providesTags: (result) => [
@@ -28,7 +28,8 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     addNewCar: builder.mutation({
       query: (initialCar) => ({
         method: 'POST',
-        url: '/cars',
+        headers: { Authorization: `Bearer ${token}` },
+        url: '/cars/new',
         body: { ...initialCar },
       }),
       invalidatesTags: [
@@ -37,6 +38,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     }),
     deleteCar: builder.mutation({
       query: ({ id }) => ({
+        headers: { Authorization: `Bearer ${token}` },
         method: 'DELETE',
         url: `/cars/${id}`,
       }),
