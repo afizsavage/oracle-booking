@@ -18,7 +18,7 @@ const SubmitButton = ({ setShowErrors }) => {
 };
 
 SubmitButton.propTypes = {
-  setShowErrors: PropType.bool.isRequired,
+  setShowErrors: PropType.func.isRequired,
 };
 
 export default SubmitButton;
