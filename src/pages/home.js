@@ -1,7 +1,7 @@
 import Carousel from '../components/Carousel';
 
 const Home = () => (
-  <section className="relative pt-5 md:p-0 lg:flex justify-center items-center lg:w-10/12 overflow-y-auto h-screen">
+  <section className="relative pt-5 w-full md:p-0 lg:flex justify-center items-center lg:w-10/12 overflow-y-auto h-screen">
     <div className="w-full text-center lg:flex flex-col justify-center h-full ">
       <div className="absolute top-10 w-full">
         <div className="w-full">

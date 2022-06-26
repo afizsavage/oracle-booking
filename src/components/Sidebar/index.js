@@ -7,12 +7,12 @@ const SideBar = ({ renderAside, setRenderAside }) => (
   <aside
     className={
       renderAside
-        ? 'top-0 absolute bg-white lg:relative flex flex-col z-50 justify-between h-screen w-full lg:w-2/12 border-r-2 pt-0 pb-6'
+        ? ' absolute top-0 left-0 lg:relative w-full flex flex-col justify-between h-screen lg:w-2/12 border-r-2 pt-0 pb-6'
         : 'hidden'
     }
   >
-    <div className="lg:hidden absolute right-2 top-2 border">
-      <button className="p-1" type="button" onClick={() => setRenderAside()}>
+    <div className="lg:hidden right-2 top-2 border">
+      <button className="p-1" type="button" onClick={() => setRenderAside(false)}>
         x
       </button>
     </div>

@@ -120,6 +120,10 @@
   @apply bg-orange-100;
 }
 
+.ch {
+  height: 100%;
+}
+
 .black {
   background-color: #bcbdbf;
 }

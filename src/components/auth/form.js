@@ -74,7 +74,7 @@ const AuthForm = () => {
         <span className="text-red-500 text-sm">{serverError}</span>
       ) : null}
       <form
-        className="flex flex-col items-center justify-center"
+        className="flex flex-col mb-16 items-center justify-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         {currentRoute === '/sign-up' && (

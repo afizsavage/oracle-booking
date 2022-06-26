@@ -7,11 +7,13 @@ import MyFavourites from './pages/MyFavourites';
 import SignUp from './pages/register';
 import AddCars from './pages/addCars';
 import CarsList from './pages/deleteCars';
+import Header from './components/Utils/header';
 
 const App = () => {
   const location = useLocation();
   const currentRoute = location.pathname;
   const [renderAside, setRenderAside] = useState(false);
+  const [renderHeader, setRenderHeader] = useState(null);
   const { innerWidth } = window;
 
   useEffect(() => {
@@ -24,20 +26,37 @@ const App = () => {
     } else {
       setRenderAside(false);
     }
+
+    if (currentRoute.includes('sign')) {
+      setRenderHeader(false);
+    } else {
+      setRenderHeader(true);
+    }
   }, [currentRoute]);
 
   return (
     <div className="relative">
-      <main className="flex h-screen">
+      <main className="relative h-screen w-screen overflow-x-hidden">
+        <div
+          className={
+            renderAside
+              ? ' bg-black ch translate-x-48 z-50 relative'
+              : 'z-50 relative'
+          }
+        >
+          {renderHeader && (
+            <Header renderAside={renderAside} setRenderAside={setRenderAside} />
+          )}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/favourites" element={<MyFavourites />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/add" element={<AddCars />} />
+            <Route path="/delete" element={<CarsList />} />
+          </Routes>
+        </div>
         <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favourites" element={<MyFavourites />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/add" element={<AddCars />} />
-          <Route path="/delete" element={<CarsList />} />
-        </Routes>
       </main>
     </div>
   );
