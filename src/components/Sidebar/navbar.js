@@ -10,7 +10,7 @@ const links = [
 const Navbar = () => {
   const userState = { isLoggedIn: true };
   return (
-    <ul className="pl-5 pt-12 lg:pt-0">
+    <ul className="mt-24 lg:pt-0">
       {links.map((link) => (
         <NavItem
           key={links.indexOf(link)}

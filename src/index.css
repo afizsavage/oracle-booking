@@ -6,6 +6,11 @@
   --pri-color: #ff5518;
   --sec-color: #efefef;
   --ter-color: #b94010;
+  --side-color: #f8f5fa;
+}
+
+.b-pri {
+  border-color: var(--pri-color);
 }
 
 .bg-pri {
@@ -14,6 +19,10 @@
 
 .bg-ter {
   background-color: var(--ter-color);
+}
+
+.bg-side {
+  background-color: var(--side-color);
 }
 
 .control-arrow {

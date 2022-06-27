@@ -72,7 +72,7 @@ const CarsCarousel = () => {
   }
 
   return (
-    <section className="hidden md:block">
+    <section className="">
       <Carousel
         showThumbs={false}
         showIndicators={false}

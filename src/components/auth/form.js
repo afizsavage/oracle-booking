@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logUserIn } from '../../features/users';
 
 import {
   useSignUpMutation,
@@ -31,6 +33,7 @@ const AuthForm = () => {
   const currentRoute = location.pathname;
   const [signUp] = useSignUpMutation();
   const [login] = useLoginMutation();
+  const dispatch = useDispatch();
 
   const logInUser = async (data) => {
     try {
@@ -38,6 +41,7 @@ const AuthForm = () => {
       if (res.data !== undefined) {
         setCurrentUser(res.data.user);
         setToken(res.data.token);
+        dispatch(logUserIn(res.data.user));
         navigate('/');
       } else {
         setServerError(res.error.data.message[0]);

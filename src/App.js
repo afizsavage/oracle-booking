@@ -36,11 +36,12 @@ const App = () => {
 
   return (
     <div className="relative">
-      <main className="relative h-screen w-screen overflow-x-hidden">
+      <main className="relative lg:flex min-h-screen w-screen overflow-x-hidden">
+        <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
         <div
           className={
             renderAside
-              ? ' bg-black ch translate-x-48 z-50 relative'
+              ? ' bg-black ch translate-x-48 lg:transform-none lg:w-10/12 min-h-screen z-50 relative'
               : 'z-50 relative'
           }
         >
@@ -56,7 +57,6 @@ const App = () => {
             <Route path="/delete" element={<CarsList />} />
           </Routes>
         </div>
-        <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
       </main>
     </div>
   );
