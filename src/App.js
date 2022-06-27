@@ -36,13 +36,13 @@ const App = () => {
 
   return (
     <div className="relative">
-      <main className="relative lg:flex min-h-screen w-screen overflow-x-hidden">
+      <main className="relative lg:flex h-screen overflow-hidden w-screen">
         <SideBar renderAside={renderAside} setRenderAside={setRenderAside} />
         <div
           className={
             renderAside
-              ? ' bg-black ch translate-x-48 lg:transform-none lg:w-10/12 min-h-screen z-50 relative'
-              : 'z-50 relative'
+              ? 'shadow-2xl bg-side lg:shadow-none h-full ch translate-x-48 lg:transform-none lg:min-h-screen lg:w-10/12 z-50 relative'
+              : 'z-50 relative min-h-screen'
           }
         >
           {renderHeader && (
