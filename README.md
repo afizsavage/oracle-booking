@@ -36,3 +36,24 @@
 ```
 git clone https://github.com/afizsavage/oracle-booking
 ```
+## Setup
+
+### For the frontend
+
+```
+npm install
+```
+
+Start server(frontend):
+
+```
+npm start
+```
+
+The front end app will open automatically to the default browser
+
+### Run the tests
+
+```
+npm run test
+```
