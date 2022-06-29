@@ -7,8 +7,24 @@
 ## Live Versions
 
 - [Front-End]()
-- [Back-end](https://car-booking-premium.herokuapp.com)
+- [Back-end](https://gentle-springs-58920.herokuapp.com/)
 
 ## Link to the backend
 
-- [Backend](https://github.com/DelhinRharl/car-booking-service-back-end)
+- [Backend](https://github.com/vic778/Oracle-booking-API)
+
+## Built With
+
+- ReactJS
+- Redux Toolkit
+- TailwindCSS
+
+## Getting Started
+
+- Getting a local copy is simple. Follow the steps below
+
+### Install
+
+- Node
+- npm
+- git
