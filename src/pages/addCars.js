@@ -34,10 +34,10 @@ const AddCars = () => {
   };
 
   return (
-    <section className="fixed top-0 w-full h-full md:pl-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
-      <div className="w-full h-full bg-[#efefef]/90 px-20 flex flex-col justify-center">
-        <div className="h-full text-center flex flex-col items-center pt-20 w-5/5">
-          <h1 className="font-bold text-gray-700 text-2xl md:text-5xl text-center uppercase mb-10">
+    <section className="fixed top-0 w-full h-full md:pr-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
+      <div className="w-full h-full md:pr-[12vw] bg-[#efefef]/90 px-50 flex flex-col justify-center">
+        <div className="h-full text-center flex flex-col items-center pt-10 w-5/5">
+          <h1 className="font-bold text-gray-700 text-2xl md:text-5xl text-center uppercase mb-0">
             Add Cars
           </h1>
           {isError && (
@@ -64,7 +64,7 @@ const AddCars = () => {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10 md:mb-20"
+            className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-3 mb-10 md:mb-20 sm-w-full"
           >
             {errors.make && <FormError>Must fill out this field</FormError>}
             <input
