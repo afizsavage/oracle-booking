@@ -57,3 +57,24 @@ The front end app will open automatically to the default browser
 ```
 npm run test
 ```
+
+## Authors
+
+👤 **Victor Chukwuemeka**
+
+- GitHub: [@githubhandle](https://github.com/chukwuemeka1234/)
+- Twitter: [@twitterhandle](https://twitter.com/@avc_victor)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/vic-chukwuemeka/)
+
+👤 **Afiz Savage**
+
+- GitHub: [@afizsavage](https://github.com/afizsavage)
+- Twitter: [@fizzo_geek](https://twitter.com/fizzo_geek)
+- LinkedIn: [@afiz-savage](https://www.linkedin.com/in/afiz-savage-3b91a21ba/)
+
+👤 **Ricky Mormor**
+
+- GitHub: [@cwaku](https://github.com/cwaku)
+- LinkedIn: [Ricky Mormor](www.linkedin.com/in/rickymormor)
+- Instagram: [@rickymormor](https://instagram.com/rickymormor)
+- Twitter: [@rickymormor](https://twitter.com/rickymormor)
