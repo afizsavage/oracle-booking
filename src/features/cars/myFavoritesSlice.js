@@ -11,7 +11,7 @@ const favoritesAdapter = createEntityAdapter({
 });
 
 const initialState = favoritesAdapter.getInitialState();
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ETUYUOkmfnWsWIvA8iBOkE2s1ZQ0V_zgnG_c4QRrhbg';
+const token = sessionStorage.getItem('token');
 
 export const extendedFavApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
