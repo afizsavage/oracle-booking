@@ -27,16 +27,16 @@ const CarDetails = () => {
 
   return (
     <div className="d-height lg:h-100 flex flex-col justify-end lg:justify-center lg:items-center">
-      <div className="relative s-1 lg:h-3/5 lg:w-7/12 text-white font-medium">
-        <img className="w-full h-full " alt={title} src={image.url} />
-        <div className="absolute bottom-14 left-5">
-          <span className="">{title}</span>
+      <div className="relative s-1 lg:h-3/5 lg:w-12/12 text-white font-medium">
+        <img className="w-full h-full " alt={title} src={`https://gentle-springs-58920.herokuapp.com/${image.url}`} />
+        <div className="absolute bottom-14 left-5 pt-5">
+          <span className="text-pri">{title}</span>
           {' '}
-          <span className="">{model}</span>
+          <span className="text-pri">{model}</span>
         </div>
         <div className="absolute bottom-10 right-5">
-          <span className="block">{price}</span>
-          <span className="block text-xs">Per month</span>
+          <span className="block text-gray-700">{price}</span>
+          <span className="block text-xs text-gray-700">Per month</span>
         </div>
       </div>
       <div className="s-2 px-10 lg:w-3/5 lg:text-center flex items-center">

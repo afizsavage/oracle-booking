@@ -37,9 +37,9 @@ const MyFavourites = () => {
           <table className="sm:w-[70%]">
             <thead>
               <tr>
-                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center">Car Id</th>
-                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:text-1xl">Created at</th>
-                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center px-1 border-1">Action</th>
+                <th className="sm:w-[25%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center px-3">Car Id</th>
+                <th className="sm:w-[25%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:text-1xl px-3">Created at</th>
+                <th className="sm:w-[25%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center border-1 px-3">Action</th>
               </tr>
             </thead>
             <tbody>
