@@ -47,6 +47,7 @@
 
 .slide {
   min-width: 84% !important;
+  max-width: 84% !important;
   margin: 0 0.4rem !important;
 }
 
@@ -131,15 +132,11 @@
 
   .slide {
     min-width: 30% !important;
+    max-width: 30% !important;
     margin: 0 0.9rem !important;
   }
 
   .slide:first-of-type {
     margin-left: 0.4rem !important;
-  }
-
-  .slide img {
-    width: 100% !important;
-    height: auto !important;
   }
 }

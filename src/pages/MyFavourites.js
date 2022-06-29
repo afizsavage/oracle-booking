@@ -14,7 +14,7 @@ const MyFavourites = () => {
   };
 
   return (
-    <section className="fixed top-0 w-full h-full md:pl-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
+    <section className="fixed lg:static w-full h-full bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
       <div className="w-full h-full bg-[#efefef]/90 px-20 flex flex-col justify-center">
         <div className="h-full text-center flex flex-col items-center pt-20 w-5/5">
           <h1 className="font-bold text-gray-700 text-3xl md:text-5xl md:mb-5 text-center">
