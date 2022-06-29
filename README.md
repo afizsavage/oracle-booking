@@ -78,3 +78,16 @@ npm run test
 - LinkedIn: [Ricky Mormor](www.linkedin.com/in/rickymormor)
 - Instagram: [@rickymormor](https://instagram.com/rickymormor)
 - Twitter: [@rickymormor](https://twitter.com/rickymormor)
+
+## 🅰️ Acknowledgements
+
+The design template is provided by
+[Creative Commons](https://creativecommons.org/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
