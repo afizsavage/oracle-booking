@@ -13,11 +13,11 @@ const Header = ({ renderAside, setRenderAside }) => {
   };
   return (
     <header className="w-full flex lg:hidden h-11 items-center justify-between px-5">
-      <button type="button" onClick={() => toggleSidebar()}>
+      <button className="z-50" type="button" onClick={() => toggleSidebar()}>
         <FcMenu className="text-xl text-gray-800" />
       </button>
       <h2>Cars</h2>
-      <span>
+      <span className="z-50">
         <TbSearch className="text-xl text-gray-600" />
       </span>
     </header>

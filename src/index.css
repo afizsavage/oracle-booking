@@ -25,6 +25,10 @@
   background-color: var(--side-color);
 }
 
+.text-pri {
+  color: var(--pri-color);
+}
+
 .carousel,
 .carousel-slider {
   display: flex !important;

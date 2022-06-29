@@ -14,8 +14,8 @@ const CarsList = () => {
     }
   };
   return (
-    <section className="fixed top-0 w-full h-full md:pl-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
-      <div className="w-full h-full bg-[#efefef]/90 px-20 flex flex-col justify-center">
+    <section className="fixed top-0 w-full h-full md:pr-[9vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/2-2-car-transparent.png')] bg-center bg-no-repeat bg-200%">
+      <div className="w-full h-full md:pr-[12vw] bg-[#efefef]/90 px-5 flex flex-col justify-center">
         <div className="h-full text-center flex flex-col items-center pt-20 w-full">
           <h2 className="font-bold text-3xl text-center mb-10">LIST OF CARS</h2>
           {isError && (
