@@ -38,7 +38,7 @@ const MyFavourites = () => {
             <thead>
               <tr>
                 <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center">Car Id</th>
-                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:text-1xl px-4">Created at</th>
+                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:text-1xl">Created at</th>
                 <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center px-1 border-1">Action</th>
               </tr>
             </thead>
