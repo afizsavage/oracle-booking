@@ -1,8 +1,8 @@
 # Oracle booking service
 
-![Screenshot](./screenshot.png)
-![Screenshot](./screenshot-0.png)
-![Screenshot](./screenshot-1.png)
+![Screenshot]()
+![Screenshot]()
+![Screenshot]()
 
 ## Live Versions
 
