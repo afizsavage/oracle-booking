@@ -13,7 +13,7 @@ const Item = ({ bike }) => {
   } = bike;
 
   return (
-    <Link to={`/bikes/${id}`}>
+    <Link to={`/cars/${id}`}>
       <div className="h-full w-full">
         <div className="i-wrap mx-auto relative w-full h-auto flex items-center justify-center">
           <div className={`round mx-auto lg:my-0 lg:mx-0 rounded-full ${color}`}>
