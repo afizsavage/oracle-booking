@@ -31,11 +31,11 @@ export const extendedFavApiSlice = apiSlice.injectEndpoints({
       ],
     }),
     addNewFavorite: builder.mutation({
-      query: (initialCar) => ({
+      query: (body) => ({
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         url: '/favorites',
-        body: { ...initialCar },
+        body,
       }),
       invalidatesTags: [
         { type: 'Favorites', id: 'LIST_FAVORITES' },
