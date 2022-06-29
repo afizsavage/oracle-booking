@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import NavItem from './nav-link';
 
 const links = [
@@ -8,7 +10,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  const userState = { isLoggedIn: true };
+  const userState = useSelector((state) => state.user);
   return (
     <ul className="mt-24 lg:pt-0">
       {links.map((link) => (
@@ -16,11 +18,7 @@ const Navbar = () => {
           key={links.indexOf(link)}
           name={link.name}
           path={link.path}
-          style={
-            !userState.isLoggedIn
-            && link.path !== '/'
-            && link.path !== '/reserve' ? 'hidden' : ''
-          }
+          style={!userState.isLoggedIn && link.path !== '/' ? 'hidden' : ''}
         />
       ))}
     </ul>

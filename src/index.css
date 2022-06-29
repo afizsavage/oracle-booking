@@ -47,11 +47,24 @@
 
 .slide {
   min-width: 84% !important;
+  max-width: 84% !important;
   margin: 0 0.4rem !important;
 }
 
 .slide:last-of-type {
   margin-right: 2rem !important;
+}
+
+.s-2 {
+  height: calc(100vh - 78%) !important;
+}
+
+.s-3 {
+  height: calc(100vh - 98%) !important;
+}
+
+.d-height {
+  height: calc(100vh - 44px);
 }
 
 @media only screen and (min-width: 768px) {
@@ -119,15 +132,11 @@
 
   .slide {
     min-width: 30% !important;
+    max-width: 30% !important;
     margin: 0 0.9rem !important;
   }
 
   .slide:first-of-type {
     margin-left: 0.4rem !important;
-  }
-
-  .slide img {
-    width: 100% !important;
-    height: auto !important;
   }
 }

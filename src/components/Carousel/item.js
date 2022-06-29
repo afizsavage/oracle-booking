@@ -16,7 +16,7 @@ const Item = ({ car }) => {
     <Link to={`/cars/${id}`}>
       <div className="h-full shadow-lg w-full">
         <div className="w-full h-96 flex items-center">
-          <img className="w-full h-auto" src={image.url} alt={title} />
+          <img className="w-full h-full lg:h-auto" src={`https://gentle-springs-58920.herokuapp.com/${image.url}`} alt={title} />
         </div>
         <div className="border-t text-gray-500 border-gray-300 h-20 pt-3 px-5">
           <div className="flex text-gray-700 justify-between mb-1">
