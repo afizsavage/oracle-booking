@@ -28,3 +28,11 @@
 - Node
 - npm
 - git
+
+### Local Copy
+
+- Clone the project
+
+```
+git clone https://github.com/afizsavage/oracle-booking
+```
