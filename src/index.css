@@ -54,6 +54,18 @@
   margin-right: 2rem !important;
 }
 
+.s-2 {
+  height: calc(100vh - 78%) !important;
+}
+
+.s-3 {
+  height: calc(100vh - 98%) !important;
+}
+
+.d-height {
+  height: calc(100vh - 44px);
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .image-wrapper {

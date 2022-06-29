@@ -8,6 +8,7 @@ import SignUp from './pages/register';
 import AddCars from './pages/addCars';
 import CarsList from './pages/deleteCars';
 import Header from './components/Utils/header';
+import CarDetail from './pages/detail';
 
 const App = () => {
   const location = useLocation();
@@ -50,6 +51,7 @@ const App = () => {
           )}
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/cars/:id" element={<CarDetail />} />
             <Route path="/favourites" element={<MyFavourites />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
