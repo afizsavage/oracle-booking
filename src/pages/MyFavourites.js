@@ -38,7 +38,6 @@ const MyFavourites = () => {
             <thead>
               <tr>
                 <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center">Car Id</th>
-                <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl sm:rounded-5x1 bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:border-1 px-4">Model</th>
                 <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center sm:text-1xl px-4">Created at</th>
                 <th className="w-[80%] sm:w-[20%] h-[2.6rem] rounded-3xl bg-transparent border-none border-2 border-white bg-white font-bold text-1xl text-gray-700 text-center px-1 border-1">Action</th>
               </tr>
@@ -47,7 +46,6 @@ const MyFavourites = () => {
               {myFavorites.map((favorite) => (
                 <tr key={favorite.id}>
                   <td className="px-2 p-2">{favorite.car_id}</td>
-                  <td className="px-2 p-2">{favorite.user_id}</td>
                   <td className="px-2 p-2">
                     {new Date(favorite.created_at).toLocaleDateString('en-UK')}
                   </td>
