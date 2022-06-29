@@ -1,42 +1,55 @@
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import {
-  TiSocialFacebook,
-  TiSocialTwitter,
-  TiSocialGooglePlus,
-  TiSocialPinterest,
-  TiSocialVimeo,
-} from 'react-icons/ti';
+// import { NavLink } from 'react-router-dom';
+import { logUserOut } from '../../features/users';
 
-const socialIcons = [
-  <TiSocialTwitter key={0} />,
-  <TiSocialFacebook key={1} />,
-  <TiSocialGooglePlus key={2} />,
-  <TiSocialVimeo key={3} />,
-  <TiSocialPinterest key={4} />,
-];
+const Footer = () => {
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
-const SocialLink = ({ icon }) => <li className="mx-1 text-base"><a href="/">{icon}</a></li>;
+  const deleteToken = () => {
+    sessionStorage.removeItem('token');
+  };
 
-const Footer = () => (
-  <div>
-    <ul className="flex justify-center mb-3">
-      {socialIcons.map((icon) => (
-        <SocialLink icon={icon} key={icon.key} />
-      ))}
-    </ul>
-    <span className="text-xs font-medium w-full text-center block">
-      ©
-      {' '}
-      {new Date().getFullYear()}
-      {' '}
-      Oracle Booking
-    </span>
-  </div>
-);
+  const removeCurrentUser = () => {
+    sessionStorage.removeItem('user');
+  };
+
+  useEffect(() => {
+    console.log(userState);
+  });
+
+  const logout = () => {
+    deleteToken();
+    removeCurrentUser();
+    dispatch(logUserOut());
+  };
+  return (
+    <div className="w-full pl-7">
+      <div className=" w-5/12 pb-4 pt-2 border-t border-gray-300 flex items-center">
+        {userState.isLoggedIn ? (
+          <button
+            className="p1-2 block text-gray-500"
+            onClick={() => logout()}
+            type="button"
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            className="py-1 block text-gray-500"
+            onClick={() => navigate('/sign-in')}
+            type="button"
+          >
+            Sign In
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Footer;
-
-SocialLink.propTypes = {
-  icon: PropTypes.element.isRequired,
-};

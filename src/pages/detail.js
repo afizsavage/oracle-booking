@@ -1,7 +1,7 @@
 import CarDetails from '../components/Details';
 
 const CarDetail = () => (
-  <section className="w-screen overflow-hidden min-h-screen">
+  <section className="w-full flex lg:items-center justify-center overflow-hidden min-h-screen">
     {' '}
     <CarDetails />
   </section>

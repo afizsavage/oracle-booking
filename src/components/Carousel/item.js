@@ -1,35 +1,35 @@
+/* eslint-disable react/forbid-prop-types */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import SocialShare from './social-link';
 
-const Item = ({ bike }) => {
+const Item = ({ car }) => {
   const {
-    id,
-    description,
-    make,
-    model,
-    color,
-    image,
-  } = bike;
+    id, title, image, model, price, description,
+  } = car;
+
+  function convertToThousands(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   return (
     <Link to={`/cars/${id}`}>
-      <div className="h-full w-full">
-        <div className="i-wrap mx-auto relative w-full h-auto flex items-center justify-center">
-          <div className={`round mx-auto lg:my-0 lg:mx-0 rounded-full ${color}`}>
-            <div className="absolute left-0 top-0 flex items-center right-0 bottom-0 w-full bg-teal-500 bg-transparent">
-              <img src={image} alt="car" />
-            </div>
-          </div>
+      <div className="h-full shadow-lg w-full">
+        <div className="w-full h-96 flex items-center">
+          <img className="w-full h-full lg:h-auto" src={`https://gentle-springs-58920.herokuapp.com/${image.url}`} alt={title} />
         </div>
-        <div>
-          <h2 className="mb-4 font-semibold text-gray-800">
-            <span>{make}</span>
-            {' '}
-            <span>{model}</span>
-          </h2>
-          <p className="text-sm font-medium text-gray-400 mb-2">{description}</p>
-          <SocialShare />
+        <div className="border-t text-gray-500 border-gray-300 h-20 pt-3 px-5">
+          <div className="flex text-gray-700 justify-between mb-1">
+            <span>
+              <span>{title}</span>
+              {' '}
+              <span>{model}</span>
+            </span>
+            <span>{`$ ${convertToThousands(price)}`}</span>
+          </div>
+          <div>
+            <p className="w-full text-sm text-center">{description}</p>
+          </div>
         </div>
       </div>
     </Link>
@@ -39,5 +39,5 @@ const Item = ({ bike }) => {
 export default Item;
 
 Item.propTypes = {
-  bike: PropTypes.objectOf().isRequired,
+  car: PropTypes.object.isRequired,
 };
