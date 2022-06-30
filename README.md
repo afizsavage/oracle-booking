@@ -6,7 +6,7 @@
 
 ## Live Versions
 
-- [Front-End]()
+- [Front-End](https://protected-ocean-24892.herokuapp.com/)
 - [Back-end](https://gentle-springs-58920.herokuapp.com/)
 
 ## Link to the backend
@@ -36,6 +36,7 @@
 ```
 git clone https://github.com/afizsavage/oracle-booking
 ```
+
 ## Setup
 
 ### For the frontend
