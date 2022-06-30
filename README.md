@@ -29,6 +29,14 @@
 - npm
 - git
 
+## Kanban Board
+
+- Front-End [Kanban Board](https://github.com/afizsavage/oracle-booking/projects/1)
+- Back-end [Kanban Board](https://github.com/vic778/Oracle-booking-API/projects/1)
+
+- Initial Kanban Board
+  ![Screenshot](./src/images/kanban.png)
+
 ### Local Copy
 
 - Clone the project
